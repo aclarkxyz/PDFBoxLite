@@ -1,0 +1,58 @@
+<!--
+    Build for PDFBoxLite (based on Apache PDFBox)
+-->
+
+<project name="PDFBoxLite" default="pkg" basedir=".">
+
+    <description>PDFBoxLite</description>
+
+    <property name="pkg" location="pkg"/>
+
+    <path id="project.class.path">
+    </path>
+
+    <target name="init">
+		<tstamp/>
+    	<mkdir dir="bin"/>
+		<mkdir dir="pkg"/>
+    </target>
+    
+    <target name="build" depends="init" description="build the source">
+		<javac srcdir="src" destdir="bin" debug="on" 
+			  encoding="8859_1" listfiles="on" includeantruntime="false">
+			 <!-- source="1.6" target="1.6"-->
+		    <classpath refid="project.class.path"/>
+		</javac>
+    </target>
+
+    <target name="pkg" depends="build" description="generate the packages">
+    	<jar jarfile="pkg/PDFBoxLite.jar" basedir="bin">
+    	    <manifest>
+    	    	<attribute name="Main-Class" value="org.apache.pdfbox.test.TestMain"/>
+    	    </manifest>
+			<fileset dir="src" includes="org/apache/pdfbox/resources/**"/>
+			<!--<zipgroupfileset dir="lib" includes="*.jar"/>-->
+		</jar>
+
+<!--	
+    	<exec dir="templ/" executable="sh" output="templ/list">
+    	    <arg line="-c 'ls *.el'"/>
+    	</exec>
+
+		<jar jarfile="${dist}/SketchEl.jar" basedir="${build}">
+    	    <manifest>
+    	    	<attribute name="Main-Class" value="SketchEl.MainWindow"/>
+    	    </manifest>
+	    <fileset dir="." includes="images/*.png" />
+	    <fileset dir="." includes="images/*.gif" />
+	    <fileset dir="." includes="templ/list" />
+	    <fileset dir="." includes="templ/*.el" />
+    	</jar>-->
+    </target>
+
+    <target name="clean" description="clean up">
+    	<delete dir="bin"/>
+    	<delete dir="pkg"/>
+    </target>
+
+</project>
