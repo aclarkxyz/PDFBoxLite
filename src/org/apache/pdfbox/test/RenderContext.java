@@ -1,22 +1,12 @@
 /*
- * BioAssay Ontology Annotator Tools
+ * PDFBoxLite: a subset of the Apache PDFBox library that provides just the basic necessities for
+ * creating a PDF file with some basic drawing primitives. This is for the benefit of projects
+ * that do not want the full universe of PDF functionality, nor the many megabytes of code to work
+ * with it.
  * 
- * (c) 2014-2016 Collaborative Drug Discovery Inc.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License 2.0
- * as published by the Free Software Foundation:
+ * License: original project Apache License, all modifications public domain
  * 
- * http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ * Author: Dr. Alex M. Clark (http://molmatinf.com)
  */
 
 package org.apache.pdfbox.test;
@@ -29,10 +19,7 @@ import org.apache.pdfbox.pdmodel.font.*;
 import org.apache.pdfbox.pdmodel.common.*;
 
 /*
-	Graphical page unit for use by RenderSchema: provides all of the functionality that's needed to render graphics onto a page. Usage is presumed to be a
-	two-pass system: for the first pass, the stream object is null, which means that all drawing operations are neutered, but the width & height are kept
-	uptodate. For the second pass, the page object is defined, using the previously established width and height. The class also does the transformation
-	between inappropriate choice of math-coordinates, and transforms the origin to be at the top left of the page.
+	Simple example of using basic primitives on a PDF stream.
 */
 
 public class RenderContext
